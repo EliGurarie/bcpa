@@ -7,7 +7,7 @@
 #' @param plotme logical - whether or not to plot the diagnostics
 #' @param values logical - whether or not to return the values of the standardized residuals.
 #' @param ... additional arguments to pass to the \code{\link{PartitionParameters}} function.
-#' @return If \code{values} is TRUE, returnn the values of the standardized residuals.
+#' @return If \code{values} is TRUE, returns the values of the standardized residuals.
 #' @seealso \code{\link{PartitionParameters}}
 #' @author Eliezer Gurarie
 #' @examples

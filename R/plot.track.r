@@ -2,8 +2,8 @@
 #' 
 #' Default method for plotting tracks
 #' @param x object of class "track" to plot
-#' @param pch default point style (filled circle)
-#' @param col default color (transluscent grey)
+#' @param pch default point style: filled circle
+#' @param col default color: transparent grey
 #' @param ... other arguments to pass to \code{plot}
 #' @method plot track
 #' @examples

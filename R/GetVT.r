@@ -1,6 +1,6 @@
 #' Obtain VT table from Track
 #' 
-#' The VT table containes speeds, steplengths, orientations and other summaries derived from a track. The output of this function is (typically) meant to feed the \code{\link{WindowSweep}} function. 
+#' The VT table computes speeds, step lengths, orientations, turning angles and ancillary variables from a track. The output of this function is (typically) meant to feed the \code{\link{WindowSweep}} function. 
 #' 
 #' @param Data a track to analyze.  Must contain columns: X, Y and Time (as a POSIX object).  The \code{track} class is a robust entry.  
 #' @param units the time units for the analysis; one of \code{sec, min, hour, day}.

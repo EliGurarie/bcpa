@@ -1,7 +1,7 @@
 \name{GetL}
 \alias{GetL}
 \title{Obtain likelihood of gappy Gaussian time series}
-\description{Obtain likelihood of gappy standardized Gaussian time series "x" sampled at times "t" given parameter "rho" (autocorrelation).  Alternatively computes the charactersitic time scale "tau".
+\description{Obtain likelihood of gappy standardized Gaussian time series "x" sampled at times "t" given parameter "rho" (autocorrelation).  Alternatively computes the characteristic time scale "tau".
 }
 \usage{
 GetL(x, t, rho, tau = FALSE)

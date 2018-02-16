@@ -6,7 +6,7 @@
 #' @param variable a character string representing the response to apply the BCPA to.  For example \code{"V*cos(theta)"}  for persistence velocity, or \code{"log(V)"} for log of velocity. 
 #' @param windowsize integer size of the analysis window as a number of data points (not time units).  Should probably be no smaller than 20. 
 #' @param windowstep integer step size of analysis. Values greater than 1 speed the analysis up. 
-#' @param K senstivity parameter for the adjusted BIC.  Smaller values make for a less sensitive model selection, i.e. more likely that the null model of no significant changes will be selected.
+#' @param K sensitivity parameter for the adjusted BIC.  Smaller values make for a less sensitive model selection, i.e. more likely that the null model of no significant changes will be selected.
 #' @param tau a logical indicating whether the autocorrelation "rho" or the characteristic time "tau" should be estimated. 
 #' @param range a number between 0 and 1 that determines the extent of each window that is scanned for changepoints.  I.e., if the window is 100 datapoints long, at the default \code{range=0.6}, changepoints will be scanned between 20 and 80. 
 #' @param progress logical - whether or not to output a progress bar as the analysis is being performed. 
@@ -17,7 +17,7 @@
 #' \item{ws}{a data frame containing the change point, selected model, and parameter estimates} 
 #' \item{x}{the response variable} 
 #' \item{t}{the time variable - in the units specified in the data object} 
-#' \item{t.POSIX}{the time variable as a POSIX objects (contianing Y-M-D H:S)} 
+#' \item{t.POSIX}{the time variable as a POSIX object (containing Y-M-D H:S)} 
 #' \item{windowsize}{the window size}
 #' \item{windowstep}{the window step size}
 #' 

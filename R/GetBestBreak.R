@@ -4,7 +4,7 @@
 #'
 #' @param x  vector of time series values.
 #' @param t	vector of times of measurements associated with x.
-#' @param range tange of possible breaks. Default (0.6) runs approximately from 1/5th to 4/5ths of the total length of the time series.
+#' @param range of possible breaks. Default (0.6) runs approximately from 1/5 to 4/5 of the total length of the time series.
 #' @param ... additional parameters to pass to \code{\link{GetDoubleL}} function.
 
 #' @return returns a single row (vector) with elements: \code{breaks},\code{tbreaks},\code{mu1},\code{sigma1},\code{rho1},\code{LL1},\code{mu2},\code{sigma2},\code{rho2},\code{LL2},\code{LL}. The breakpoint is calculated for a range of possible values of width \code{range*l} (where \code{l} is the length of the time series). The output of this function feeds \code{\link{WindowSweep}}.
