@@ -1,3 +1,4 @@
+### Overview
 
 This is a collection of functions that allows one to perform the behavioral change point analysis (BCPA) as described by Gurarie et al. (2009). The key features are estimation of discrete changes in time-series data, notably linear and turning components of gappy velocity times series extracted from movement data.
 
