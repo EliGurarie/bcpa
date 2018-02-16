@@ -5,5 +5,5 @@
 src/*.o
 src/*.so
 src/*.dll
-vignettes/figures
+vignettes/figure
 vignettes/cache
