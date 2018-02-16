@@ -11,4 +11,4 @@ That said, `bcpa` can be very useful for the analysis of one-dimensional, Gaussi
 
 Gurarie, E., R. Andrews and K. Laidre. 2009. A novel method for identifying behavioural changes in animal movement data. *Ecology Letters* 12: 395-408.
 
-Gurarie, E., C. Fleming, W.F. Fagan, K. Laidre, J. Hernández-Pliego, O. Ovaskainen. 2017. Correlated velocity models as a fundamental unit of animal movement: synthesis and applications. [*Movement Ecology*](https://movementecologyjournal.biomedcentral.com/articles/10.1186/s40462-017-0103-3). 
+Gurarie, E., C. Fleming, W.F. Fagan, K. Laidre, J. Hernández-Pliego, O. Ovaskainen. 2017. Correlated velocity models as a fundamental unit of animal movement: synthesis and applications. [*Movement Ecology*](https://movementecologyjournal.biomedcentral.com/articles/10.1186/s40462-017-0103-3) 5:13. 

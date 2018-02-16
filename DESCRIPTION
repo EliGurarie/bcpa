@@ -2,7 +2,7 @@ Package: bcpa
 Type: Package
 Title: Behavioral Change Point Analysis of Animal Movement
 Version: 1.2
-Date: 2014-10-21
+Date: 2018-02-15
 Author: Eliezer Gurarie <eliezg@uw.edu>
 Maintainer: Eliezer Gurarie <eliezg@uw.edu>
 Description: The Behavioral Change Point Analysis (BCPA) is a method of
@@ -11,7 +11,9 @@ Description: The Behavioral Change Point Analysis (BCPA) is a method of
     irregularly sampled.  The method is based on: E.
     Gurarie, R. Andrews and K. Laidre A novel method for identifying
     behavioural changes in animal movement data (2009) Ecology Letters 12:5
-    395-408.
+    395-408. NOTE: the method may be useful for any univariate, irregularly sampled Gaussian time-series, 
+    but animal movement analysts are encouraged to apply correlated velocity change point analysis as implemented 
+    in the smoove package, as of this writing on GitHub at https://github.com/EliGurarie/smoove. 
 License: Unlimited
 Depends:
     plyr

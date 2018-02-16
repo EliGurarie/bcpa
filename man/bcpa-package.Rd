@@ -4,8 +4,9 @@
 \docType{package}
 \title{Behavioral Change Point Analysis}
 \description{
-
 A collection of functions that allows one to perform the behavioral change point analysis (BCPA) as described by Gurarie et al. (2009, Ecology Letters, 12: 395-408).  The key features are estimation of discrete changes in time-series data, notable linear and turning components of gappy velocity times series extracted from movement data.  
+
+NOTE: For more movement-appropriate change point analysis, users are encouraged to apply correlated velocity change point analysis as implemented in the \code{smoove} package (as of this writing on GitHub at https://github.com/EliGurarie/smoove) which implements methods described in Gurarie et al. 2017. 
 
 There is a fairly detailed vignette - type in \code{vignette("bcpa")}.  Alternatively, the key analysis function is \code{\link{WindowSweep}}, and reading its documentation is a good way to start using this package. This function uses a suite of functions that might also be useful for more narrow analysis, listed hierarchically (from bottom-up) below:
 	\tabular{ll}{
@@ -44,7 +45,8 @@ This is a suite of functions needed to perform a complete behavioral change poin
 }
 \author{Eliezer Gurarie <eliezg@uw.edu>}
 \references{
-	Gurarie, E., R. Andrews and K. Laidre. 2009. A novel method for identifying behavioural changes in animal movement data. Ecol. Lett. 12: 395-408.
+	Gurarie, E., R. Andrews and K. Laidre. 2009. A novel method for identifying behavioural changes in animal movement data. Ecology Letters. 12: 395-408.
+	Gurarie, E., C. Fleming, W.F. Fagan, K. Laidre, J. Hernandez-Pliego, O. Ovaskainen. 2017. Correlated velocity models as a fundamental unit of animal movement: synthesis and applications. Movement Ecology, 5:13. 
 }
 
 \examples{
