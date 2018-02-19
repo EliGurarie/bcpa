@@ -34,8 +34,7 @@ PathPlot <-  function (Data, windowsweep, type=c("smooth", "flat")[1], clusterwi
   if(type == "smooth")  
     if("pp.smooth" %in% names(windowsweep)) pp <- windowsweep$pp.smooth else pp <- PartitionParameters(windowsweep, type = type)
   
-  Segments <- function(z, col=col, lwd=lwd)
-  {
+  Segments <- function(z, col=col, lwd=lwd){
     n <- length(z)
     segments(Re(z[-n]), Im(z[-n]), Re(z[-1]), Im(z[-1]), col=col, lwd=lwd)
   }  

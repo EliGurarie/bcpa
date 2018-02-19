@@ -6,7 +6,6 @@
 \usepackage{amstext}
 \usepackage{graphicx}
 \usepackage{color}        
-%\usepackage{multirow}
 \usepackage{setspace}
 \setlength{\parindent}{0in}
 \setlength{\parskip}{\baselineskip}
@@ -183,7 +182,7 @@ hist(Simp.VT$Theta, breaks=20, col="grey")
 
 \subsection{Obtaining a changepoint}
 
-A single changepoint in a time-series where the parameters change at some unknown timepoints $t^*$ is done by simply sweeping all possible breaks, and finding the most-likely changepoint according to the likelihood.  This is illustrated below:
+A single changepoint in a time-series where the parameters change at some unknown timepoints $t^*$ is done by sweeping all possible breaks and finding the most likely changepoint according to the likelihood.  This is illustrated below:
 
 <<OneBreak, fig.height=4, echo=-1, tidy=FALSE, cache=TRUE>>=
 set.seed(2)
@@ -192,8 +191,7 @@ mu1 <- 5; mu2 <- 3
 sigma1 <- 2; sigma2 <- 1
 rho1 <- 0.5; rho2 <- 0.5
 
-SimTS <- function(n, mu, rho, sigma)
-{
+SimTS <- function(n, mu, rho, sigma){
   X.standard <- arima.sim(n, model=list(ar = rho))
   X.standard/sd(X.standard)*sigma + mu
 }
@@ -211,7 +209,7 @@ t <- t.full[keep]
 (BB <- GetBestBreak(x,t, tau=FALSE))
 @
 
-The estimates should be fairly good (note that we are chosing to estimate $\rho$ rather than $\tau$).
+The estimates should be fairly good (note that we are choosing to estimate $\rho$ rather than $\tau$).
 \bc
 <<OneBreak2, fig.height=4, echo=-1, tidy=FALSE, out.width="0.8\\textwidth">>=
 par(bty="l")

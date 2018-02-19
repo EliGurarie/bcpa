@@ -16,7 +16,7 @@ Description: The Behavioral Change Point Analysis (BCPA) is a method of
     in the smoove package, as of this writing on GitHub at https://github.com/EliGurarie/smoove. 
 License: Unlimited
 Depends:
-    plyr
+    plyr, digest
 Suggests:
     knitr,
     circular
