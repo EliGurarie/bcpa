@@ -38,8 +38,9 @@ plot.bcpa <-
     t.POSIX <- windowsweep$t.POSIX
     t <- windowsweep$t
     ws <- windowsweep$ws
+    if(is.null(t.POSIX)) t.POSIX <- t
     
-    plot(t.POSIX, x, type = "n", ...)
+    plot(t.POSIX, x, type = "n", ..., xlab = "time")
     lines(t.POSIX, x, col = "grey")
     if (type == "smooth") {
       

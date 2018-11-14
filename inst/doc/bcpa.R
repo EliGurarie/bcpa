@@ -55,8 +55,7 @@ mu1 <- 5; mu2 <- 3
 sigma1 <- 2; sigma2 <- 1
 rho1 <- 0.5; rho2 <- 0.5
 
-SimTS <- function(n, mu, rho, sigma)
-{
+SimTS <- function(n, mu, rho, sigma){
   X.standard <- arima.sim(n, model=list(ar = rho))
   X.standard/sd(X.standard)*sigma + mu
 }

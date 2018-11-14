@@ -4,17 +4,22 @@
 \alias{WindowSweep}
 \title{Perform window sweep for BCPA}
 \usage{
-WindowSweep(data, variable, windowsize = 50, windowstep = 1, K = 2,
-  tau = TRUE, range = 0.6, progress = TRUE, plotme = FALSE, ...)
+WindowSweep(data, variable, time.var = "T.mid", windowsize = 50,
+  windowstep = 1, units = "hours", K = 2, tau = TRUE,
+  range = 0.6, progress = TRUE, plotme = FALSE, ...)
 }
 \arguments{
-\item{data}{the data to be analyzed.  Most typically, output of the \code{\link{GetVT}} function containing step lengths, absolute and turning angles, etc.}
+\item{data}{the data to be analyzed.  Generically, the output of the \code{\link{GetVT}} function containing step lengths, absolute and turning angles, etc, but can be any data frame with a column representing times and any column (or set of columns) that can be converted to a time series for change point analysis.}
 
-\item{variable}{a character string representing the response to apply the BCPA to.  For example \code{"V*cos(theta)"}  for persistence velocity, or \code{"log(V)"} for log of velocity.}
+\item{variable}{a character string representing the response variable to apply the BCPA to.  For example \code{"V*cos(theta)"}  for persistence velocity, \code{"log(V)"} for log of velocity if the data are outputs of `code{\link{GetVT}}`.   Otherwise, any column (e.g. \code{"Depth"}) in the data.}
+
+\item{time.var}{character string for the time variable.  The default is \code{T.mid}  from the output of the `code{\link{GetVT}}`.}
 
 \item{windowsize}{integer size of the analysis window as a number of data points (not time units).  Should probably be no smaller than 20.}
 
 \item{windowstep}{integer step size of analysis. Values greater than 1 speed the analysis up.}
+
+\item{units}{if the times are POSIX, \code{units} (one of "secs", "mins", "hours", "days", "weeks") determine the unit of the \code{windowstep}.}
 
 \item{K}{sensitivity parameter for the adjusted BIC.  Smaller values make for a less sensitive model selection, i.e. more likely that the null model of no significant changes will be selected.}
 
@@ -41,15 +46,52 @@ an object of class \code{windowsweep}, which is a list containing:
 This is the workhorse function of the BCPA.  It performs a sweep of the time series, searching for most significant change points and identifying the parsimonious model according to an adjusted BIC.
 }
 \examples{
+# Using the included simulated  movement data
+
 data(Simp)
 plot(Simp)
 Simp.VT <- GetVT(Simp)
+## note: column names of Simp.VT include:
+###  "S" - step length
+### "Theta" - turning angle
+###  T.start" "T.end"   "T.mid"  "T.POSIX" - time variables
+
 Simp.ws <- WindowSweep(Simp.VT, "V*cos(Theta)", windowsize = 50, windowstep = 1, progress=TRUE)
 plot(Simp.ws, threshold=7)
 plot(Simp.ws, type="flat", clusterwidth=3)
 PathPlot(Simp, Simp.ws)
 PathPlot(Simp, Simp.ws, type="flat")
 DiagPlot(Simp.ws)
+
+# Example of application on one dimensional data (e.g. depth)
+
+require(magrittr)
+require(lubridate)
+
+# simulate some data with three change points: surface, medium, deep, surface
+
+## random times
+time = (Sys.time() - dhours(runif(n.obs, 0, n.obs))) \%>\% sort
+
+d1 <- 50; d2 <- 100
+t1 <- 25; t2 <- 65; t3 <- 85
+sd1 <- .5; sd2 <- 5; sd3 <- 10
+
+dtime <- difftime(time, min(time), units="hours") \%>\% as.numeric
+phases <- cut(dtime, c(-1, t1, t2, t3, 200), labels = c("P1","P2","P3","P4")) 
+means <- c(0,d1,d2,0)[phases]
+sds <- c(sd1,sd2,sd3,sd1)[phases]
+depth <- rnorm(means, sds)
+# make surface depths positive!
+mydata$depth[phases \%in\% c(1,4)] <- abs(mydata$depth[phases \%in\% c(1,4)])
+# plot simulated depth data
+with(mydata, plot(time, depth, type = "o"))
+
+# perform windowsweep
+ws <- WindowSweep(mydata, "depth", time.var = "time", windowsize = 30, windowstep = 1, progress=TRUE)
+plot(ws)
+plot(ws, type = "flat", cluster = 6)
+ChangePointSummary(ws, cluster = 6)
 }
 \seealso{
 for internal functions: \code{\link{GetModels}}, \code{\link{GetBestBreak}}, \code{\link{GetDoubleL}}; for summarizing output: \code{\link{ChangePointSummary}}; for plotting output: \code{\link{plot.bcpa}}
