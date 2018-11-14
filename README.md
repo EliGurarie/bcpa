@@ -6,6 +6,9 @@ The package has been on [CRAN](https://CRAN.R-project.org/package=bcpa) for a wh
 
 That said, `bcpa` can be very useful for the identification of structural changes of one-dimensional, Gaussian, irregularly sampled time-series, which can come up in many applications, not necessarily related to movement. 
 
+For example, here is a link detailing how to apply this tool directly to a univariate time series: http://htmlpreview.github.io/?https://github.com/EliGurarie/bcpa/blob/master/examples/UnivariateBCPA.html. 
+
+
 ### References
 
 Gurarie, E., R. Andrews and K. Laidre. 2009. A novel method for identifying behavioural changes in animal movement data. *Ecology Letters* 12: 395-408.
