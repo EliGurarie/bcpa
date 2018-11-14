@@ -1,5 +1,5 @@
 # Using the included simulated  movement data
-
+require(bcpa)
 data(Simp)
 plot(Simp)
 Simp.VT <- GetVT(Simp)
@@ -23,21 +23,21 @@ require(lubridate)
 # simulate some data with three change points: surface, medium, deep, surface
 
 ## random times
+n.obs <- 100
 time = (Sys.time() - dhours(runif(n.obs, 0, n.obs))) %>% sort
 
 d1 <- 50; d2 <- 100
 t1 <- 25; t2 <- 65; t3 <- 85
-sd1 <- .5; sd2 <- 5; sd3 <- 10
+sd1 <- 1; sd2 <- 5; sd3 <- 10
 
 dtime <- difftime(time, min(time), units="hours") %>% as.numeric
 phases <- cut(dtime, c(-1, t1, t2, t3, 200), labels = c("P1","P2","P3","P4")) 
 means <- c(0,d1,d2,0)[phases]
 sds <- c(sd1,sd2,sd3,sd1)[phases]
-depth <- rnorm(means, sds)
-# make surface depths positive!
-mydata$depth[phases %in% c(1,4)] <- abs(mydata$depth[phases %in% c(1,4)])
-# plot simulated depth data
-with(mydata, plot(time, depth, type = "o"))
+depth <- rnorm(n.obs,means, sds)
+# make all depths positive!
+depth <- abs(depth)
+mydata <- data.frame(time, depth)
 
 # perform windowsweep
 ws <- WindowSweep(mydata, "depth", time.var = "time", windowsize = 30, windowstep = 1, progress=TRUE)
