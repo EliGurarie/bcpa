@@ -349,7 +349,7 @@ This plot illustrates the qq-norm plot, the histogram and the auto-correlation f
 
 \section{Conclusions}
 
-It is hoped that this package will facilitate analysis of complex behavioral movement data.  However, it should be stressed that this is perhaps first and foremost an exploratory tool.  Its strength is that it can distill complex information into some tabulated and visual summaries that outline underlying structures.  It is also relatively fast - a long data set with tens of thousands of locations takes well under a minute to analyze on most machines.  
+We hope this package will facilitate analysis of complex behavioral movement data. However, it should be stressed that this is perhaps first and foremost an exploratory tool.  Its strength is that it can distill complex information into some tabulated and visual summaries that outline underlying structures.  It is also relatively fast - a long data set with tens of thousands of locations takes well under a minute to analyze on most machines.  
 
 That said, this tool merely \emph{describes} and does not \emph{explain} complex behavioral profiles.  The BCPA can be used to propose some appropriate movement models or behavioral hypotheses for further testing.  Alternatively, an explanatory or predictive analysis of behaviors with respect to covariates can be performed by extracting some biologically meaningful summary from the BCPA, and performing a post-hoc analysis to model the observed patterns with respect to covariates.   
 

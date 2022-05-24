@@ -3,7 +3,8 @@
 \docType{data}
 \name{Simp}
 \alias{Simp}
-\title{Simulated Chimp (Simp) Data}
+\title{Simulated Chim
+ (Simp) Data}
 \format{
 \describe{
 \item{Time}{times of observation} 

@@ -12,6 +12,25 @@ NumericVector SubSet(NumericVector A, int start, int end)
 	return B;
 }
 
+
+//' Obtain likelihood estimates of gappy Gaussian time series
+//' 
+//' Obtain likelihood of gappy standardized Gaussian time series "x" sampled at
+//' times "t" given parameter "rho" (autocorrelation).  Alternatively computes
+//' the characteristic time scale "tau".
+//' 
+//' @name GetL
+//' 
+//' @param x Time series
+//' @param t Sampling times
+//' @param rho Auto-correlation
+//' @param tau logical: Whether or not to compute characteristic time scale
+//' instead of rho.
+//' @return Returns the log-likelihood of the data.
+//' @author Eliezer Gurarie
+//' @seealso Core function of BCPA, used directly in \code{\link{GetRho}}
+//' @example examples/GetLExamples.R
+
 // [[Rcpp::export]]
 double GetL(NumericVector x, NumericVector t, double rho, bool tau = false)
 {

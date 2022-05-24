@@ -15,7 +15,8 @@ Description: The Behavioral Change Point Analysis (BCPA) is a method of
     for any univariate, irregularly sampled Gaussian time-series, but animal 
     movement analysts are encouraged to apply correlated velocity change point 
     analysis as implemented in the smoove package, as of this writing on GitHub 
-    at https://github.com/EliGurarie/smoove. 
+    at https://github.com/EliGurarie/smoove. An example of a univariate analysis
+    is provided in the UnivariateBCPA vignette. 
 License: Unlimited
 Depends:
     plyr
@@ -25,5 +26,5 @@ Suggests:
     knitr, lubridate, magrittr,
     circular, digest
 VignetteBuilder: knitr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.0
 LinkingTo: Rcpp
