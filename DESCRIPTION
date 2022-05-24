@@ -1,26 +1,29 @@
 Package: bcpa
 Type: Package
 Title: Behavioral Change Point Analysis of Animal Movement
-Version: 1.3
-Date: 2018-02-15
-Author: Eliezer Gurarie <eliezg@uw.edu>
-Maintainer: Eliezer Gurarie <eliezg@uw.edu>
+Version: 1.4
+Date: 2021-05-23
+Author: Eliezer Gurarie <egurarie@esf.edu>
+Maintainer: Eliezer Gurarie <egurarie@esf.edu>
 Description: The Behavioral Change Point Analysis (BCPA) is a method of
     identifying hidden shifts in the underlying parameters of a time series,
     developed specifically to be applied to animal movement data which is
-    irregularly sampled.  The method is based on: E.
-    Gurarie, R. Andrews and K. Laidre A novel method for identifying
-    behavioural changes in animal movement data (2009) Ecology Letters 12:5
-    395-408. NOTE: the method may be useful for any univariate, irregularly sampled Gaussian time-series, 
-    but animal movement analysts are encouraged to apply correlated velocity change point analysis as implemented 
-    in the smoove package, as of this writing on GitHub at https://github.com/EliGurarie/smoove. 
+    irregularly sampled.  The method is based on: E. Gurarie, R. Andrews and 
+    K. Laidre A novel method for identifying behavioural changes in animal 
+    movement data (2009) Ecology Letters 12:5 395-408. A development version is 
+    on https://github.com/EliGurarie/bcpa. NOTE: the BCPA method may be useful 
+    for any univariate, irregularly sampled Gaussian time-series, but animal 
+    movement analysts are encouraged to apply correlated velocity change point 
+    analysis as implemented in the smoove package, as of this writing on GitHub 
+    at https://github.com/EliGurarie/smoove. 
 License: Unlimited
 Depends:
     plyr
+Imports:
+    stats, Rcpp (>= 0.11.0)
 Suggests:
-    knitr,
+    knitr, lubridate, magrittr,
     circular, digest
 VignetteBuilder: knitr
-RoxygenNote: 6.1.0
-Imports: Rcpp (>= 0.11.0)
+RoxygenNote: 7.1.1
 LinkingTo: Rcpp

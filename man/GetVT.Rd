@@ -7,9 +7,11 @@
 GetVT(Data, units = "hour", skiplast = TRUE)
 }
 \arguments{
-\item{Data}{a track to analyze.  Must contain columns: X, Y and Time (as a POSIX object).  The \code{track} class is a robust entry.}
+\item{Data}{a track to analyze.  Must contain columns: X, Y and Time (as a 
+POSIX object).  The \code{track} class is a robust entry.}
 
-\item{units}{the time units for the analysis; one of \code{sec, min, hour, day}.}
+\item{units}{the time units for the analysis; one of \code{sec, min, hour, 
+day}.}
 
 \item{skiplast}{filters away last step.}
 }
@@ -25,7 +27,9 @@ a data frame with the following columns:
 \item{T.POSIX}{the temporal midpoint of the step as a POSIX objects.}
 }
 \description{
-The VT table computes speeds, step lengths, orientations, turning angles and ancillary variables from a track. The output of this function is (typically) meant to feed the \code{\link{WindowSweep}} function.
+The VT table computes speeds, step lengths, orientations, turning angles and 
+ancillary variables from a track. The output of this function is (typically) 
+meant to feed the \code{\link{WindowSweep}} function.
 }
 \examples{
 data(Simp)

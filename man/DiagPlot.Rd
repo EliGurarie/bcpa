@@ -4,8 +4,13 @@
 \alias{DiagPlot}
 \title{Diagnostic plot for BCPA}
 \usage{
-DiagPlot(windowsweep, type = c("smooth", "flat")[1], plotme = TRUE,
-  values = FALSE, ...)
+DiagPlot(
+  windowsweep,
+  type = c("smooth", "flat")[1],
+  plotme = TRUE,
+  values = FALSE,
+  ...
+)
 }
 \arguments{
 \item{windowsweep}{a \code{windowsweep} object, i.e. the output of the \code{\link{WindowSweep}} analysis.}
