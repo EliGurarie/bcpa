@@ -18,10 +18,8 @@
 
 
 PartitionParameters <-
-function(windowsweep, type = c("smooth","flat")[1], clusterwidth = 1)
-{
-  if(type == "smooth" & !("pp.smooth" %in% names(windowsweep)))
-  {
+  function(windowsweep, type = c("smooth","flat")[1], clusterwidth = 1){
+  if(type == "smooth" & !("pp.smooth" %in% names(windowsweep))){
     x <- windowsweep$x
     t <- windowsweep$t 
     windowsize <- windowsweep$windowsize
@@ -38,8 +36,7 @@ function(windowsweep, type = c("smooth","flat")[1], clusterwidth = 1)
     s.M <- matrix(NA,n.row,n.col)
     rho.M <- matrix(NA,n.row,n.col)
     
-    for(i in 1:n.row)
-    {
+    for(i in 1:n.row){
       myws<-ws[i,]
       dts <- abs(t-myws$Break)
       tbreak <- match(min(dts),dts)
@@ -59,15 +56,13 @@ function(windowsweep, type = c("smooth","flat")[1], clusterwidth = 1)
     mu.hat<-colSums(mu.M,na.rm=1)/adjust
     s.hat<-colSums(s.M,na.rm=1)/adjust
     rho.hat<-colSums(rho.M,na.rm=1)/adjust
-  } else
-  {
+  } else{
     mu.hat <- windowsweep$pp$mu.hat
     s.hat <- windowsweep$pp$s.hat
     rho.hat <- windowsweep$pp$rho.hat
   }
 
-  if(type == "flat")
-  {
+  if(type == "flat"){
     x <- windowsweep$x 
     t <- windowsweep$t
     phases <- ChangePointSummary(windowsweep, clusterwidth)$phases             

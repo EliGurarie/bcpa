@@ -8,3 +8,5 @@ src/*.dll
 vignettes/figure
 vignettes/cache
 scrap
+/doc/
+/Meta/
