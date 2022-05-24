@@ -9,7 +9,7 @@
 #' @details  For more movement-appropriate change point analysis, users are
 #' encouraged to apply correlated velocity change point analysis as implemented
 #' in the `smoove` package (as of this writing on GitHub at
-#' [https://github.com/EliGurarie/smoove](https://github.com/EliGurarie/smoove)) 
+#' <https://github.com/EliGurarie/smoove>) 
 #' which implements methods described in Gurarie et al. 2017.
 #' 
 #' There is a fairly detailed vignette - type in `vignette("bcpa")`, and an

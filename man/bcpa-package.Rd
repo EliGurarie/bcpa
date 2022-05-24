@@ -17,8 +17,8 @@ times series extracted from movement data.
 For more movement-appropriate change point analysis, users are
 encouraged to apply correlated velocity change point analysis as implemented
 in the \code{smoove} package (as of this writing on GitHub at
-\link{https://github.com/EliGurarie/smoove}) which implements methods described in
-Gurarie et al. 2017.
+\url{https://github.com/EliGurarie/smoove})
+which implements methods described in Gurarie et al. 2017.
 
 There is a fairly detailed vignette - type in \code{vignette("bcpa")}, and an
 updated vignette \code{vignette("UnivariateBCPA")} with a univariate example.

@@ -301,7 +301,7 @@ plot(Simp.ws, type="smooth", threshold = 7)
 @
 
 
-The \texttt{threshold} parameter indicates how many of the windows that were swept over the data must have selected that changepoint for it to be considered significant.  The changepoints selected (at that threshold) are almost exactly the ones that were encoded in the original simulaiton. 
+The \texttt{threshold} parameter indicates how many of the windows that were swept over the data must have selected that changepoint for it to be considered significant.  The changepoints selected (at that threshold) are almost exactly the ones that were encoded in the original simulation. 
 
 The ``flat'' analysis first selects changepoints that it deeps significant by clustering neighboring changepoints, and then estimates a homogeneous behavior between those changepoints.  Note that by increasing the clusterwisth to 3, many of the more minor changepoints are filtered away and the resulting profile is fairly uniform.
 

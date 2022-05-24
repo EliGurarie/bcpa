@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, fig.width = 6, fig.height = 
 
 # Comments
 
-The BCPA was originally formulated to analyze irregular movement data collected on marine mammals, but in essence it simply reduced movement data (X-Y-Time) to a univariate time-series.  There are - in my opinoin - better (i.e. more informative and more robust) tools for dealing with movement data specifically, (e.g. at https://github.com/EliGurarie/smoove), but the BCPA might still be useful for irregular univariate time series.  An example (again from marine mammals) is depth data.  A recent update to BCPA makes this analysis somewhat smoother.   Here is an example on simulated data.  
+The BCPA was originally formulated to analyze irregular movement data collected on marine mammals, but in essence it simply reduced movement data (X-Y-Time) to a univariate time-series.  There are - in my opinion - better (i.e. more informative and more robust) tools for dealing with movement data specifically, (e.g. at https://github.com/EliGurarie/smoove), but the BCPA might still be useful for irregular univariate time series.  An example (again from marine mammals) is depth data.  A recent update to BCPA makes this analysis somewhat smoother.   Here is an example on simulated data.  
 
 Note - to date this is available only on the GitHub version of BCPA, i.e. the first step is:
 ```{r, eval = FALSE}
@@ -70,7 +70,7 @@ Plot simulated depth data
 with(mydata, plot(time, depth, type = "o"))
 ```
 
-Perform the window sweep.  Note that you specify the response variable (`depth`) and the time varible (`time`):
+Perform the window sweep.  Note that you specify the response variable (`depth`) and the time variable (`time`):
 
 ```{r}
 depth.ws <- WindowSweep(mydata, variable = "depth", time.var = "time", windowsize = 25, windowstep = 1, progress=FALSE)
