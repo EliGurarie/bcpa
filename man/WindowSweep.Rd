@@ -78,7 +78,8 @@ parameter estimates}
 }
 \description{
 This is the workhorse function of the BCPA.  It performs a sweep of the time 
-series, searching for most significant change points and identifying the parsimonious model according to an adjusted BIC.
+series, searching for most significant change points and identifying the 
+parsimonious model according to an adjusted BIC.
 }
 \examples{
 # Using the included simulated  movement data

@@ -1,7 +1,8 @@
 #' Perform window sweep for BCPA
 #'
 #' This is the workhorse function of the BCPA.  It performs a sweep of the time 
-#' series, searching for most significant change points and identifying the parsimonious model according to an adjusted BIC.
+#' series, searching for most significant change points and identifying the 
+#' parsimonious model according to an adjusted BIC.
 #'
 #' @param data the data to be analyzed.  Generically, the output of the 
 #' \code{\link{GetVT}} function containing step lengths, absolute and turning 
@@ -52,7 +53,52 @@
 #' output: \code{\link{ChangePointSummary}}; for plotting output: 
 #' \code{\link{plot.bcpa}}
 #' @author Eliezer Gurarie
-#' @example examples/WindowSweepExamples.r
+#' @examples
+#' # Using the included simulated  movement data
+#' require(bcpa)
+#' data(Simp)
+#' plot(Simp)
+#' Simp.VT <- GetVT(Simp)
+#' ## note: column names of Simp.VT include:
+#' ###  "S" - step length
+#' ### "Theta" - turning angle
+#' ###  T.start" "T.end"   "T.mid"  "T.POSIX" - time variables
+#' 
+#' Simp.ws <- WindowSweep(Simp.VT, "V*cos(Theta)", windowsize = 50, 
+#'                        windowstep = 1, progress=TRUE)
+#' plot(Simp.ws, threshold = 7)
+#' plot(Simp.ws, type = "flat", clusterwidth = 3)
+#' PathPlot(Simp, Simp.ws)
+#' PathPlot(Simp, Simp.ws, type="flat")
+#' DiagPlot(Simp.ws)
+#' 
+#' # Example of application on one dimensional data (e.g. depth)
+#' 
+#' # simulate some data with three change points: surface, medium, deep, surface
+#' 
+#' ## random times
+#' n.obs <- 100
+#' time = sort((Sys.time() - lubridate::dhours(runif(n.obs, 0, n.obs))))
+#' 
+#' d1 <- 50; d2 <- 100
+#' t1 <- 25; t2 <- 65; t3 <- 85
+#' sd1 <- 1; sd2 <- 5; sd3 <- 10
+#' 
+#' dtime <- as.numeric(difftime(time, min(time), units="hours"))
+#' phases <- cut(dtime, c(-1, t1, t2, t3, 200), labels = c("P1","P2","P3","P4")) 
+#' means <- c(0,d1,d2,0)[phases]
+#' sds <- c(sd1,sd2,sd3,sd1)[phases]
+#' depth <- rnorm(n.obs,means, sds)
+#' # make all depths positive!
+#' depth <- abs(depth)
+#' mydata <- data.frame(time, depth)
+#' 
+#' # perform windowsweep
+#' ws <- WindowSweep(mydata, "depth", time.var = "time", windowsize = 30, 
+#'                   windowstep = 1, progress=TRUE)
+#' plot(ws)
+#' plot(ws, type = "flat", cluster = 6)
+#' ChangePointSummary(ws, cluster = 6)
 
 WindowSweep <- function (data, variable, time.var = "T.mid", windowsize = 50, 
                          windowstep = 1, units = "hours", K = 2, tau=TRUE, 
@@ -66,7 +112,7 @@ WindowSweep <- function (data, variable, time.var = "T.mid", windowsize = 50,
    t.raw <- data[,time.var]
   }
   
-  if(any(diff(t.raw) == 0)) stop("Looks like there are some duplicate timestamps.  Remove those, and try again.")
+  if(any(diff(t.raw) == 0)) stop("Looks like there are some duplicate timestamps. Remove those, and try again.")
 
   x <- eval(parse(text = variable), data)
   
@@ -111,7 +157,8 @@ WindowSweep <- function (data, variable, time.var = "T.mid", windowsize = 50,
   }
   if(progress) close(pb)
   windowsweep <- list(ws = data.frame(estimates, row.names=1:nrow(estimates)), 
-                      x=x, t=t, t.POSIX = data$T.POSIX, windowsize=windowsize, windowstep=windowstep)
+                      x=x, t=t, t.POSIX = data$T.POSIX, windowsize=windowsize, 
+                      windowstep=windowstep)
   
   windowsweep$pp.smooth <- PartitionParameters(windowsweep, type="smooth", ...) 
   class(windowsweep) <- "bcpa"
