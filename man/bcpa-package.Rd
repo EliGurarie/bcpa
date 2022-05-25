@@ -22,47 +22,48 @@ which implements methods described in Gurarie et al. 2017.
 
 There is a fairly detailed vignette - type in \code{vignette("bcpa")}, and an
 updated vignette \code{vignette("UnivariateBCPA")} with a univariate example.
-The key analysis function is \href{WindowSweep.html}{\code{WindowSweep()}}, and
+The key analysis function is \code{\link{WindowSweep}}, and
 reading its documentation is a good way to start using this package.
 
-\href{WindowSweep.html}{\code{WindowSweep()}} uses a suite of functions that might be
-useful for more narrow analysis, listed hierarchically (from bottom-up)
-below:
+\code{\link{WindowSweep}} uses a suite of functions that might be
+useful for more narrow analysis. These functions are all available and
+documented, and are listed here hierarchically, from the most fundamental
+to the most complex:
 \itemize{
-\item \href{GetRho.html}{\code{GetRho()}}  maximizes the likelihood to estimate
+\item \code{\link{GetRho}}  maximizes the likelihood to estimate
 autocorrelation rho or characteristic time-scale tau.
-\item \href{GetDoubleL.html}{\code{GetDoubleL()}}  estimates the parameters and returns the
+\item \code{\link{GetDoubleL}}  estimates the parameters and returns the
 log-likelihood at either side of a given break
-\item \href{GetBestBreak.html}{\code{GetBestBreak()}}  finds the single best change point
-according to the likelihood returned by  \href{GetDoubleL}{\code{GetDoubleL()}}
-\item \href{GetModels.html}{\code{GetModels()}}   uses a (modified) BIC model selection
+\item \code{\link{GetBestBreak}}  finds the single best change point
+according to the likelihood returned by  \code{\link{GetDoubleL}}`](GetDoubleL)
+\item \code{\link{GetModels}}   uses a (modified) BIC model selection
 for all combinations from M0 (\eqn{\mu_1 = \mu_2}, \eqn{\sigma_1 = \sigma_2},
 \eqn{\rho_1 = \rho_2}) to M7 (\eqn{\mu_1 \neq \mu_2},
 \eqn{\sigma_1 \neq \sigma_2}, \eqn{\rho_1 \neq \rho_2}) to
 characterize the "Best Break"
-\item Finally, \href{WindowSweep.html}{\code{WindowSweep()}} sweeps a longer time series
+\item Finally, \code{\link{WindowSweep}} sweeps a longer time series
 with the Best Break / Model Selection analysis, identifying most likely break
 points and BIC selected models across the time series.
 }
 
 Summary, diagnostic, and plotting functions are:
 \itemize{
-\item \href{PartitionParameters.html}{\code{PartitionParameters()}} - outputs estimated
+\item \code{\link{PartitionParameters}} - estimated
 parameters of a BCPA.
-\item \href{ChangePointSummary.html}{\code{ChangePointSummary()}}  - summary table of
+\item \code{\link{ChangePointSummary}}  - summary table of
 the change points.
-\item \href{plot.bcpa.html}{\code{plot.bcpa()}} - a plotting method for
+\item \code{\link{plot.bcpa}} - a plotting method for
 visualizing the time series with vertical lines as change points.
-\item \href{PathPlot.html}{\code{PathPlot()}} - a method for drawing a color-coded track of
+\item \code{\link{PathPlot}} - a method for drawing a color-coded track of
 the analysis.
-\item \href{DiagPlot.html}{\code{DiagPlot()}} - diagnostic plots for BCPA.
+\item \code{\link{DiagPlot}} - diagnostic plots for BCPA.
 }
 
 A few preprocessing functions are also available:
 \itemize{
-\item \href{plot.track.html}{\code{plot.track()}} - method for plotting a generic "track"
+\item \code{\link{plot.track}} - method for plotting a generic "track"
 object.
-\item \href{GetVT.html}{\code{GetVT()}} - returns step-lengths, absolute and turning angles
+\item \code{\link{GetVT}} - returns step-lengths, absolute and turning angles
 from track data.
 }
 }
@@ -99,6 +100,6 @@ Ecology, 5:13.
 }
 }
 \author{
-Eliezer Gurarie \href{mailto:egurarie@esf.edu}{egurarie@esf.edu}
+Eliezer Gurarie
 }
 \keyword{bcpa}
