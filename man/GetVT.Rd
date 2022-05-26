@@ -39,8 +39,10 @@ head(Simp.VT)
 # Distribution of estimated speeds
 hist(Simp.VT$V, col="grey", breaks=20)
 # Distribution of turning angles
-require(circular)
-rose.diag(Simp.VT$Theta, bins=24)
+
+if (requireNamespace("circular", quietly = TRUE)) 
+   circular::rose.diag(Simp.VT$Theta, bins=24) else
+     hist(Simp.VT$Theta)
 }
 \seealso{
 \code{\link{WindowSweep}}

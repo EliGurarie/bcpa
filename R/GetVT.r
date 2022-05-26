@@ -30,8 +30,10 @@
 #' # Distribution of estimated speeds
 #' hist(Simp.VT$V, col="grey", breaks=20)
 #' # Distribution of turning angles
-#' require(circular)
-#' rose.diag(Simp.VT$Theta, bins=24)
+#' 
+#' if (requireNamespace("circular", quietly = TRUE)) 
+#'    circular::rose.diag(Simp.VT$Theta, bins=24) else
+#'      hist(Simp.VT$Theta)
 
 GetVT <- function(Data, units = "hour", skiplast=TRUE)
 {
@@ -42,7 +44,9 @@ GetVT <- function(Data, units = "hour", skiplast=TRUE)
   S <- Mod(diff(Data$Z))
   Phi <- Arg(diff(Data$Z))
   Theta <- c(NA, diff(Phi))
-  
+  Theta <- ifelse(Theta < -pi, Theta + 2*pi, 
+                  ifelse(Theta > pi, Theta - 2*pi, 
+                         Theta))
   
   T.POSIX <- Data$Time[-nrow(Data)] + diff(Data$Time)/2
   
