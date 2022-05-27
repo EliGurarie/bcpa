@@ -64,8 +64,12 @@
 #' ### "Theta" - turning angle
 #' ###  T.start" "T.end"   "T.mid"  "T.POSIX" - time variables
 #' 
-#' Simp.ws <- WindowSweep(Simp.VT, "V*cos(Theta)", windowsize = 50, 
-#'                        windowstep = 1, progress=TRUE)
+#' if(interactive())
+#'   Simp.ws <- WindowSweep(Simp.VT, "V*cos(Theta)", windowsize = 50, 
+#'                          windowstep = 1, progress=TRUE) else
+#'   Simp.ws <- WindowSweep(Simp.VT, "V*cos(Theta)", windowsize = 50, 
+#'                          windowstep = 1, progress=FALSE)
+#' 
 #' plot(Simp.ws, threshold = 7)
 #' plot(Simp.ws, type = "flat", clusterwidth = 3)
 #' PathPlot(Simp, Simp.ws)
@@ -76,9 +80,9 @@
 #' 
 #' # simulate some data with three change points: surface, medium, deep, surface
 #' 
-#' ## random times
+#' ## random times within 100 hours of now
 #' n.obs <- 100
-#' time = sort((Sys.time() - lubridate::dhours(runif(n.obs, 0, n.obs))))
+#' time = sort(Sys.time() - runif(n.obs, 0, n.obs) * 60 * 60)
 #' 
 #' d1 <- 50; d2 <- 100
 #' t1 <- 25; t2 <- 65; t3 <- 85
@@ -95,7 +99,7 @@
 #' 
 #' # perform windowsweep
 #' ws <- WindowSweep(mydata, "depth", time.var = "time", windowsize = 30, 
-#'                   windowstep = 1, progress=TRUE)
+#'                   windowstep = 1, progress=interactive())
 #' plot(ws)
 #' plot(ws, type = "flat", cluster = 6)
 #' ChangePointSummary(ws, cluster = 6)

@@ -81,8 +81,13 @@
 #' ## Obtaining the movement summary table (with turning angles and step lengths)
 #'   Simp.VT <- GetVT(Simp)
 #' ## Applying the analysis
+#'  if(interactive()){
 #'   Simp.ws <- WindowSweep(Simp.VT, "V*cos(Theta)", windowsize = 50, 
 #'                          windowstep = 1, progress=TRUE)
+#'                          } else
+#'  Simp.ws <- WindowSweep(Simp.VT, "V*cos(Theta)", windowsize = 50, 
+#'                          windowstep = 1, progress=FALSE)
+#'                                             
 #' ## plotting outpots
 #'   plot(Simp.ws, threshold=7)
 #'   plot(Simp.ws, type="flat", clusterwidth=3)
