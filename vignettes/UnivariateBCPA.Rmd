@@ -4,7 +4,7 @@ author: "Elie Gurarie"
 date: "November 14, 2018"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{UnivariateBCPA}
+  %\VignetteIndexEntry{Using BCPA on a one-dimensional variable}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

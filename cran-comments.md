@@ -1,5 +1,10 @@
 ## Resubmission
 
+### Update 2022-05-27
+
+Eliminated lubridate as a dependency, placed progress bars in "interactive only" mode.  
+
+
 ### Update 2022-05-26
 
 I finally understood the `require(circular)` error in GetVT.  The help file has been modified as follows:

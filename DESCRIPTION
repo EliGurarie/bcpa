@@ -24,7 +24,7 @@ Imports:
     stats, Rcpp (>= 0.11.0)
 Suggests:
     knitr, lubridate, magrittr,
-    circular, digest
+    circular, digest, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.2.0
 LinkingTo: Rcpp
